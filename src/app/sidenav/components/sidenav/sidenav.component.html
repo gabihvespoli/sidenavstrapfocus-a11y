@@ -1,0 +1,44 @@
+<mat-sidenav-container
+  class="example-container"
+  [hasBackdrop]="hasBackdrop.value"
+>
+  <mat-sidenav #sidenav [mode]="mode.value" [position]="position.value">
+    <div class="example-content" cdkTrapFocus>
+      <h1>Sidenav</h1>
+      <button mat-raised-button>first element</button>
+      <button mat-raised-button>second element</button>
+      <button mat-raised-button>last element</button>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Sidenav mode</mat-label>
+      <mat-select #mode value="over">
+        <mat-option value="side">side</mat-option>
+        <mat-option value="over">over</mat-option>
+        <mat-option value="push">push</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Sidenav position</mat-label>
+      <mat-select #position value="end">
+        <mat-option value="end">end</mat-option>
+        <mat-option value="start">start</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Has backdrop</mat-label>
+      <mat-select #hasBackdrop>
+        <mat-option>Unset</mat-option>
+        <mat-option [value]="true">True</mat-option>
+        <mat-option [value]="false">False</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button (click)="sidenav.toggle()">
+      Toggle without trap
+    </button>
+    <button mat-raised-button (click)="toggleSidenav()">
+      Toggle with trap
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
